@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Mon compte</a>
+                        <a href="{{ url('/home') }}">Page d'accueil</a>
                     @else
                         <a href="{{ route('login') }}">Se connecter</a>
                         <a href="{{ route('register') }}">S'enregistrer</a>
@@ -79,17 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Parking M2L
+                    Administration
                 </div>
 
-                <div class="links">
-                    @auth
-                    <a href="Reservation">Reservation</a>
-                    @if(\Auth::user()->admin == 1)
-                    <a href="Administration">Administration</a>
-                    @endif
-                    @endauth
-                </div>
+                
             </div>
         </div>
     </body>

@@ -50,7 +50,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
 				                    @if(\Auth::user()->admin == 1){{'Administrateur'}}
 				                    @endif
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
