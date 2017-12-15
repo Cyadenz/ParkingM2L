@@ -25,9 +25,9 @@
     								<td>0{{$users->tel}}</td>
     								<td>{{$users->admin}}</td>
 
-                                    <td><a class="btn btn-primary" href="{{ route('index', $users) }}">Editer</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('edit', $users) }}">Editer</a></td>
 
-                                    <td><a class="btn btn-primary" href="{{ route('index', $users) }}">Supprimer</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('Supression', $users) }}">Supprimer</a></td>
     							</tr>
     						@endforeach
                         </div>
@@ -36,5 +36,4 @@
         </div>
     </div>
 			
-
 @stop

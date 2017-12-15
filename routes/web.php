@@ -25,7 +25,12 @@ Route::get('/Administration', function () {
 
 Route::get('/membres', 'membresControlleur@index')->name('index');
 
-//Route::get('/membresSup', 'membresControlleur@Suppression(2)');
+Route::get('/edit/{membre}', 'membresControlleur@edit')->name('edit');
+
+Route::get('/membreSup/{membre}', 'membresControlleur@Suppression')->name('Supression');
+
+Route::get('/update', 'membresControlleur@update')->name('update');
+
 
 Auth::routes();
 
