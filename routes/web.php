@@ -23,7 +23,9 @@ Route::get('/Administration', function () {
     return view('Administration');
 });
 
-Route::get('/membres', 'membresControlleur@index');
+Route::get('/membres', 'membresControlleur@index')->name('index');
+
+//Route::get('/membresSup', 'membresControlleur@Suppression(2)');
 
 Auth::routes();
 

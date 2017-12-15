@@ -12,13 +12,20 @@ class membresControlleur extends Controller
     	$Membres = user::all();
         return view('Users.index', compact('Membres'));
     }
-    public function show($id)
+    public function Suppression($id)
     {
-        $Membres = user::findOrFail($id);
-        return view('Users.show', compact('Membres'));
+        $Membres = user::all();
+        $MembSup = user::findOrFail($id); // si Find trouve Id, le renvoie
+        $MembSup->delete();
+        return view('Users.index', compact('Membres'));
     }
-    public function fdp()
+    public function edit($id)
     {
-    	
+    	$Membres = user::findOrFail($id);
+        return view('Users.edit', compact('Membres'));
+    }
+        public function update($id)
+    {
+        //
     }
 }
