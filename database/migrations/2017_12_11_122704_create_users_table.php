@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->Integer('tel');
             $table->string('password', 60);
             $table->boolean('admin')->default(false);
+            $table->integer('rang')->nullable()->unique();
+            $table->boolean('CompteValide')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -23,13 +23,22 @@ Route::get('/Administration', function () {
     return view('Administration');
 });
 
+
 Route::get('/membres', 'membresControlleur@index')->name('index');
 
-Route::get('/edit/{membre}', 'membresControlleur@edit')->name('edit');
+//Route::get('/edit/{membre}', 'membresControlleur@edit')->name('edit');
+//Route::get('/editS/{membre}', 'membresControlleur@edit')->name('editSuite');
 
 Route::get('/membreSup/{membre}', 'membresControlleur@Suppression')->name('Supression');
 
 Route::get('/update', 'membresControlleur@update')->name('update');
+
+Route::get('/edit/{membre}', 'membresControlleur@create')->name('edit');
+Route::post('/edit/{membre}', 'membresControlleur@store')->name('updateMembre');
+
+
+Route::get('/place', 'PlaceController@index')->name('place');
+
 
 
 Auth::routes();
