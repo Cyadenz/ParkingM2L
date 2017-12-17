@@ -23,7 +23,11 @@
         								<td>{{$Membres->name}}</td>
         								<td>{{$Membres->email}}</td>
         								<td>0{{$Membres->tel}}</td>
-        								<td>{{$Membres->admin}}</td>
+        								@if($Membres->admin == 1)
+                                            <td>Oui</td>
+                                        @else
+                                            <td>Non</td>
+                                        @endif
         						    </tr> 
                                 <tr>
                                 
@@ -44,7 +48,11 @@
                                             <div class="form-group{{ $errors->has('tel') ? ' has-error' : '' }}"> <label for="tel" class="col-md-10 control-label"></label> <div class="col-md-10"> <input id="tel" type="tel" class="form-control" name="tel" value="{{$Membres->tel}}" > @if ($errors->has('tel')) <span class="help-block"> <strong>{{ $errors->first('tel') }}</strong> </span> @endif </div> </div>
                                         </td>
                                         <td>                        
-                                            {{$Membres->admin}}
+                                            @if($Membres->admin == 1)
+                                                Oui
+                                            @else
+                                                Non
+                                            @endif
                                         </td>
                                         <td>
                                             <div class="form-group">

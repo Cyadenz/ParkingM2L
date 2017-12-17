@@ -13,14 +13,6 @@ class membresControlleur extends Controller
     	$Membres = user::all();
         return view('Users.index', compact('Membres'));
     }
-
-    //public function edit($id)
-    //{
-    //	$Membres = user::findOrFail($id);
-    //    return view('Users.edit', compact('Membres'));
-    //}
-
-
     public function update()
     {
         return view('Users.update', compact('Membres'));

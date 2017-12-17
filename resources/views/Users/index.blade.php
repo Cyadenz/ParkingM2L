@@ -23,11 +23,15 @@
     								<td>{{$users->name}}</td>
     								<td>{{$users->email}}</td>
     								<td>0{{$users->tel}}</td>
-    								<td>{{$users->admin}}</td>
+                                    @if($users->admin == 1)
+    								    <td>Oui</td>
+                                    @else
+                                        <td>Non</td>
+                                    @endif
 
-                                    <td><a class="btn btn-primary" href="{{ route('edit', $users) }}">Editer</a></td>
+                                    <td><a class="btn btn-default" href="{{ route('edit', $users) }}">Editer</a></td>
 
-                                    <td><a class="btn btn-primary" href="{{ route('Supression', $users) }}">Supprimer</a></td>
+                                    <td><a class="btn btn-default" href="{{ route('Supression', $users) }}">Supprimer</a></td>
     							</tr>
     						@endforeach
                         </div>

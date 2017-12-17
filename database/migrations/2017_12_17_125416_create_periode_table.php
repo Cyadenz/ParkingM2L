@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttenteTable extends Migration
+class CreatePeriodeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateAttenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('attente', function (Blueprint $table) {
-            $table->increments('rangfileattente');
-            $table->timestamps();
+        Schema::create('periode', function (Blueprint $table) {
+            $table->date('debutperiode')->primary();
         });
     }
 
@@ -26,6 +25,6 @@ class CreateAttenteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attente');
+        Schema::dropIfExists('periode');
     }
 }

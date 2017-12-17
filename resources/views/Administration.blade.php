@@ -10,10 +10,13 @@
                     <table class="table">
                             <div class="panel-body">
                                 <td>
-                                            <li>&nbsp;&nbsp;<a href="{{ route('index') }}">Gestion utilisateur</a></li>
-                                            <li>&nbsp;&nbsp;<a href="{{ route('index') }}">Gestion places</a></li>
-                                            <li>&nbsp;&nbsp;<a href="{{ route('index') }}">Gestion liste attentes</a></li>
-                                            <li>&nbsp;&nbsp;<a href="{{ route('index') }}">Gestion historique réservations</a></li>
+                                    <ul>
+                                        <li><a href="{{ route('index') }}">Gestion utilisateur</a></li>
+                                        <li><a href="{{ route('placeAdmin') }}">Gestion places</a></li>
+                                        <li><a href="{{ route('index') }}">Gestion liste attentes</a></li>
+                                        <li><a href="{{ route('index') }}">Gestion historique réservations</a></li>
+                                    </ul>
+                                </td>
                             </div>
                     </table>
             </div>
