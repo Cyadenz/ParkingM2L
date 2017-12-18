@@ -22,27 +22,28 @@ Route::get('/Reservation', function () {
     return view('Reservation');
 });
 
-Route::get('/Administration', function () {
+Route::get('/Administration', ['middleware' => ['auth', 'admin'], function () {
     return view('Administration');
-});
+}]);
 
 
 /*ROUTES liées aux membres incluant leurs modifications...*/
-Route::get('/membres', 'membresControlleur@index')->name('index');
-Route::get('/membreSup/{membre}', 'membresControlleur@Suppression')->name('Supression');
+Route::get('/membres',['middleware' => ['auth', 'admin'], 'uses' => 'membresControlleur@index'])->name('index');
+Route::get('/membreSup/{membre}',['middleware' => ['auth', 'admin'], 'uses' => 'membresControlleur@Suppression'])->name('Supression');
 Route::get('/update', 'membresControlleur@update')->name('update');
-Route::get('/edit/{membre}', 'membresControlleur@create')->name('edit');
+
+Route::get('/edit/{membre}',['middleware' => ['auth', 'admin'], 'uses' => 'membresControlleur@create'])->name('edit');
 
 Route::post('/edit/{membre}', 'membresControlleur@store')->name('updateMembre');
 
 
 /*ROUTES liées aux places incluant leurs modifications...*/
-Route::get('/EditPlace', 'PlaceController@PlaceEdit')->name('placeAdmin');
-Route::get('/SupPlace/{id_place}', 'PlaceController@SupPlace')->name('SupPlace');
+Route::get('/EditPlace', ['middleware' => ['auth', 'admin'], 'uses' => 'PlaceController@PlaceEdit'])->name('placeAdmin');
+Route::get('/SupPlace/{id_place}', ['middleware' => ['auth', 'admin'], 'uses' => 'PlaceController@SupPlace'])->name('SupPlace');
 Route::get('/place', 'PlaceController@index')->name('place');
 Route::get('/placeReserve/{place}', 'PlaceController@reserv')->name('placeReserve');
 Route::get('/mesReservations', 'PlaceController@MesReserv')->name('MesReserv');
-Route::get('/AttribPlace/{id_place}', 'PlaceController@Uneplace')->name('attribPlace');
+Route::get('/AttribPlace/{id_place}',['middleware' => ['auth', 'admin'], 'uses' => 'PlaceController@Uneplace'])->name('attribPlace');
 
 Route::post('/AttribPlace/{id_place}', 'PlaceController@store')->name('updatePlace');
 
@@ -50,9 +51,9 @@ Route::post('/AttribPlace/{id_place}', 'PlaceController@store')->name('updatePla
 /*ROUTES liées à la file d'attente incluant leurs modifications...*/
 Route::get('/FileDattente', 'FileDattenteControlleur@index')->name('FileDattenteIndex');
 Route::get('/MaListeAttente', 'FileDattenteControlleur@indexe')->name('MaListe');
-Route::get('/ListesAttentes', 'FileDattenteControlleur@create')->name('ListeAttAdmin');
-Route::get('/Liste/{id_user}', 'FileDattenteControlleur@UneFile')->name('ListeId');
-Route::get('/SuppressionAttente/{id_user}', 'FileDattenteControlleur@Supprimer')->name('SupAttente');
+Route::get('/ListesAttentes',['middleware' => ['auth', 'admin'], 'uses' => 'FileDattenteControlleur@create'])->name('ListeAttAdmin');
+Route::get('/Liste/{id_user}', ['middleware' => ['auth', 'admin'], 'uses' => 'FileDattenteControlleur@UneFile'])->name('ListeId');
+Route::get('/SuppressionAttente/{id_user}',['middleware' => ['auth', 'admin'], 'uses' => 'FileDattenteControlleur@Supprimer'])->name('SupAttente');
 
 Route::post('/AttribListe/{id_user}', 'FileDattenteControlleur@store')->name('updateListe');
 
