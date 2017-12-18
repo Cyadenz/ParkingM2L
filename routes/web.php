@@ -40,6 +40,7 @@ Route::get('/SupPlace/{id_place}', 'PlaceController@SupPlace')->name('SupPlace')
 Route::get('/AttribPlace/{id_place}', 'PlaceController@Uneplace')->name('attribPlace');
 Route::post('/AttribPlace/{id_place}', 'PlaceController@store')->name('updatePlace');
 
+Route::get('/FileDattente', 'FileDattenteControlleur@index')->name('FileDattenteIndex');
 
 Route::get('/place', 'PlaceController@index')->name('place');
 Route::get('/placeReserve/{place}', 'PlaceController@reserv')->name('placeReserve');

@@ -21,8 +21,9 @@ class CreateUsersTable extends Migration
             $table->Integer('tel');
             $table->string('password', 60);
             $table->boolean('admin')->default(false);
-            $table->integer('rang')->nullable()->unique();
+            $table->integer('rang')->nullable();
             $table->boolean('CompteValide')->default(false);
+            $table->integer('idPlacePreReserv')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

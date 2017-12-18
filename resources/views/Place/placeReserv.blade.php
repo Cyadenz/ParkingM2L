@@ -15,7 +15,11 @@
                             <td>Reservé par</td>
     							<tr>
     								<td>{{$place[0]->numplace}}</td>
-    								<td>{{$place[0]->reserver}}</td>
+    								@if($place[0]->reserver == 0)
+                                            <td>Non</td>
+                                        @else
+                                            <td>Oui</td>
+                                        @endif
                                     <td>{{Auth::user()->name}} {{ Auth::user()->prenom}}</td>
     							</tr>
                         </div>

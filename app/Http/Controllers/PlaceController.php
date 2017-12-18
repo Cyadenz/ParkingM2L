@@ -20,8 +20,19 @@ class PlaceController extends Controller
             ->where('id', $id)
             ->get();
 
+        $ComptesValid = \DB::table('users')
+            ->select('*')
+            ->where('CompteValide', 1)
+            ->get()->count();
+
+        $PlacesReserv = \DB::table('places')
+            ->select('*')
+            ->where('reserver', 1)
+            ->get()->count();
+
+
     	$places = place::all();
-        return view('Place.placeDispo', compact('places'), compact('users'));
+        return view('Place.placeDispo', compact('places', 'users', 'ComptesValid', 'PlacesReserv'));
     }
     public function reserv($numplace)
     {
@@ -33,7 +44,12 @@ class PlaceController extends Controller
 
         \DB::table('users')
         ->where('id', $id)
+        ->update(['idPlacePreReserv' => $numplace]);
+
+        \DB::table('users')
+        ->where('id', $id)
         ->update(['CompteValide' => 1]);
+
 
         \DB::table('reserver')->insert(
         ['finperiode' => '2015-12-12', 
@@ -58,14 +74,12 @@ class PlaceController extends Controller
     }
     public function SupPlace($id_place)
     {
-        $id = Auth::user()->id;
-
         \DB::table('places')
         ->where('numplace', $id_place)
         ->update(['reserver' => 0]);
 
         \DB::table('users')
-                ->where('id', $id)
+                ->where('idPlacePreReserv', $id_place)
                 ->update(['CompteValide' => 0]);
 
         \DB::table('reserver')->where('id_place', '=', $id_place)->delete();

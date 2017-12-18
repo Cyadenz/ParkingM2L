@@ -20,7 +20,7 @@ class membresControlleur extends Controller
 
     public function Suppression($id)
     {
-        $MembSup = user::findOrFail($id); // si Find trouve Id, le renvoie
+        $MembSup = user::findOrFail($id);
         $MembSup->delete();
         $Membres = user::all();
         return view('Users.index', compact('Membres'));

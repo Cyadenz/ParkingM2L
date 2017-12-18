@@ -17,7 +17,7 @@
                                 <td>Date fin</td>
                                 <td>Numéro de la place</td>
                                 <td>Validé par l'admin ?</td>
-
+                                <td></td>
                                 <tr>
                                         <input type="hidden" name="method" value="PUT">
                                         <td>                        
