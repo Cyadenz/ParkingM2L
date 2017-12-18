@@ -30,10 +30,10 @@ class PlaceController extends Controller
             ->where('reserver', 1)
             ->get()->count();
 
-
     	$places = place::all();
         return view('Place.placeDispo', compact('places', 'users', 'ComptesValid', 'PlacesReserv'));
     }
+    
     public function reserv($numplace)
     {
         $id = Auth::user()->id;
@@ -50,7 +50,6 @@ class PlaceController extends Controller
         ->where('id', $id)
         ->update(['CompteValide' => 1]);
 
-
         \DB::table('reserver')->insert(
         ['finperiode' => '2015-12-12', 
         'id_users' => $id, 
@@ -64,6 +63,7 @@ class PlaceController extends Controller
 
         return view('Place.placeReserv', compact('place'));
     }
+
     public function PlaceEdit()
     {
             $join = \DB::table('users')
@@ -72,6 +72,7 @@ class PlaceController extends Controller
             ->get();
         return view('Place.placeEdit', compact('join'));
     }
+
     public function SupPlace($id_place)
     {
         \DB::table('places')
@@ -91,9 +92,9 @@ class PlaceController extends Controller
 
         return view('Place.placeEdit', compact('join'));
     }
+
     public function PlaceAttrib($id_place)
     {
-
             \DB::table('reserver')
             ->where('id_place', $id_place)
             ->update(['valider' => 1,
@@ -107,7 +108,8 @@ class PlaceController extends Controller
             ->get();
         return view('Place.placeEdit', compact('join'));
     }
-     public function Uneplace($id_place)
+
+    public function Uneplace($id_place)
     {
         $uti = \DB::table('users')
             ->join('reserver', 'users.id', '=', 'reserver.id_users')
@@ -117,6 +119,7 @@ class PlaceController extends Controller
 
         return view('Place.AttribPlace', compact('uti'));
     }
+
     public function store(Request $request, $id)
     {
         $this->validate($request, [
@@ -136,6 +139,7 @@ class PlaceController extends Controller
             ->get();
         return view('Place.placeEdit', compact('join'));
     }
+
     public function MesReserv()
     {
         $id = Auth::user()->id;

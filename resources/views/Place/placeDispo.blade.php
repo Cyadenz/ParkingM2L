@@ -37,8 +37,12 @@
                                     <center><h3>Vous avez déjà réserver une place !</h3></center>
                                 @endif
                             @else
-                                <td><h4>Les places sont actuellements occupées; Voulez-vous passer en file d'attente ?</h4></td>
+                            <div><br /><br />
+                                <td><h4>Les places sont actuellements occupées,&emsp;&emsp;&emsp;&emsp;
+                                    <span style="text-decoration: underline;">Voulez-vous passer en file d'attente ?</span>
+                                    <br /><br /></h4></td>
                                 <td><a class="btn btn-default" href="{{ route('FileDattenteIndex') }}">Passer en liste d'attente</a></td>
+                            </div>
                             @endif
                         </div>
 				</table>

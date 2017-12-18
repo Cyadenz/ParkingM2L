@@ -13,6 +13,7 @@
                                     <ul>
                                         <li><a href="{{ route('place') }}">Places Disponibles</a></li>
                                         <li><a href="{{ route('MesReserv') }}">Mes réservations</a></li>
+                                        <li><a href="{{ route('MaListe') }}">Liste d'attente</a></li>
                                     </ul>
                                 </td>
                             </div>

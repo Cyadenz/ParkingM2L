@@ -11,6 +11,7 @@
 |
 */
 
+/*ROUTES du menu de BASE*/
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,31 +24,40 @@ Route::get('/Administration', function () {
     return view('Administration');
 });
 
-// Routes liées aux modifs que peuvent apporter les admins
+
+/*ROUTES liées aux membres incluant leurs modifications...*/
 Route::get('/membres', 'membresControlleur@index')->name('index');
-
 Route::get('/membreSup/{membre}', 'membresControlleur@Suppression')->name('Supression');
-
 Route::get('/update', 'membresControlleur@update')->name('update');
-
 Route::get('/edit/{membre}', 'membresControlleur@create')->name('edit');
+
 Route::post('/edit/{membre}', 'membresControlleur@store')->name('updateMembre');
 
+
+/*ROUTES liées aux places incluant leurs modifications...*/
 Route::get('/EditPlace', 'PlaceController@PlaceEdit')->name('placeAdmin');
-
 Route::get('/SupPlace/{id_place}', 'PlaceController@SupPlace')->name('SupPlace');
-
-Route::get('/AttribPlace/{id_place}', 'PlaceController@Uneplace')->name('attribPlace');
-Route::post('/AttribPlace/{id_place}', 'PlaceController@store')->name('updatePlace');
-
-Route::get('/FileDattente', 'FileDattenteControlleur@index')->name('FileDattenteIndex');
-
 Route::get('/place', 'PlaceController@index')->name('place');
 Route::get('/placeReserve/{place}', 'PlaceController@reserv')->name('placeReserve');
-
 Route::get('/mesReservations', 'PlaceController@MesReserv')->name('MesReserv');
+Route::get('/AttribPlace/{id_place}', 'PlaceController@Uneplace')->name('attribPlace');
+
+Route::post('/AttribPlace/{id_place}', 'PlaceController@store')->name('updatePlace');
 
 
+/*ROUTES liées à la file d'attente incluant leurs modifications...*/
+Route::get('/FileDattente', 'FileDattenteControlleur@index')->name('FileDattenteIndex');
+Route::get('/MaListeAttente', 'FileDattenteControlleur@indexe')->name('MaListe');
+Route::get('/ListesAttentes', 'FileDattenteControlleur@create')->name('ListeAttAdmin');
+Route::get('/Liste/{id_user}', 'FileDattenteControlleur@UneFile')->name('ListeId');
+Route::get('/SuppressionAttente/{id_user}', 'FileDattenteControlleur@Supprimer')->name('SupAttente');
+
+Route::post('/AttribListe/{id_user}', 'FileDattenteControlleur@store')->name('updateListe');
+
+
+/*ROUTES liées à l'authentification*/
 Auth::routes();
 
+
+/*ROUTE de BASE*/
 Route::get('/home', 'HomeController@index')->name('home');

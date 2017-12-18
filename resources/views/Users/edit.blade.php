@@ -17,6 +17,7 @@
                         		<td>Email</td> 
                         		<td>Téléphone</td>
                         		<td>Admin</td>
+                                <td></td>
         							<tr>
         								<td>{{$Membres->id}}</td>
         								<td>{{$Membres->prenom}}</td>
@@ -28,6 +29,7 @@
                                         @else
                                             <td>Non</td>
                                         @endif
+                                        <td></td>
         						    </tr> 
                                 <tr>
                                 

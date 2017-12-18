@@ -6,14 +6,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <h3><center>Administration</center></h3>
+                <h3><center>Liste d'attente</center></h3>
                     <table class="table">
                             <div class="panel-body">
                                 <td>
                                     <ul>
-                                        <li><a href="{{ route('index') }}">Gestion utilisateur</a></li>
-                                        <li><a href="{{ route('placeAdmin') }}">Gestion places</a></li>
-                                        <li><a href="{{ route('ListeAttAdmin') }}">Gestion liste attentes</a></li>
+                                            @if( is_null($users[0]->rang) )
+                                               <center><h4>Vous n'êtes pas sur liste d'attente !</h4></center>
+                                            @else
+                                                <center><h4>Votre position sur la liste d'attente est : {{$users[0]->rang}}</h4></center>
+                                            @endif
                                     </ul>
                                 </td>
                             </div>

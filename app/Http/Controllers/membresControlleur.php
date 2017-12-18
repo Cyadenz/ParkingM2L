@@ -13,6 +13,7 @@ class membresControlleur extends Controller
     	$Membres = user::all();
         return view('Users.index', compact('Membres'));
     }
+
     public function update()
     {
         return view('Users.update', compact('Membres'));
@@ -31,6 +32,7 @@ class membresControlleur extends Controller
         $Membres = user::findOrFail($id);
         return view('Users.edit', compact('Membres'));
     }
+
     public function store(Request $request, $id)
     {
         $this->validate($request, [
@@ -51,6 +53,5 @@ class membresControlleur extends Controller
             'admin' => $request->admin,
     ]);
         return redirect()->route('index',$user);
-
     }
 }
