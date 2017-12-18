@@ -9,6 +9,9 @@
                 <table class="table">
                     <h3><center>Tableau des réservations</center></h3>
                         <div class="panel-body">
+                                <div style="text-align: right;">
+                                    <a align="right" href="{{ url('Administration') }}">Retour arrière</a>
+                                <div>
                                 <td>Nom</td>
                                 <td>Prénom</td>
                                 <td>Date début</td>

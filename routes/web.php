@@ -12,9 +12,11 @@
 */
 
 /*ROUTES du menu de BASE*/
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/', 'HomeController@retour')->name('welcome');
 
 Route::get('/Reservation', function () {
     return view('Reservation');

@@ -8,7 +8,8 @@
             <div class="panel panel-default">
                 <h3><center>Réservation</center></h3>
                     <table class="table">
-                            <div class="panel-body">
+                            <div style="text-align: right;" class="panel-body">
+                                    <a align="right" href="{{ url('welcome') }}">Retour arrière</a>
                                 <td>
                                     <ul>
                                         <li><a href="{{ route('place') }}">Places Disponibles</a></li>

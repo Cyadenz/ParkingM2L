@@ -27,7 +27,6 @@ class PlaceController extends Controller
 
         $PlacesReserv = \DB::table('places')
             ->select('*')
-            ->where('reserver', 1)
             ->get()->count();
 
     	$places = place::all();

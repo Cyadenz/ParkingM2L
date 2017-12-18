@@ -10,6 +10,9 @@
 
                 <table class="table">
                         <div class="panel-body">
+                            <div style="text-align: right;">
+                                <a align="right" href="{{ url('membres') }}">Retour arrière</a>
+                            <div>
                     		<td>Id</td>
                     		<td>Prénom</td>
                     		<td>Nom</td>

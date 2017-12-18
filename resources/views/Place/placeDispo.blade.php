@@ -8,6 +8,9 @@
             <div class="panel panel-default">
                 <table class="table">
                         <div class="panel-body">
+                            <div style="text-align: right;">
+                                <a align="right" href="{{ url('Reservation') }}">Retour arrière</a>
+                            <div>
                             @if($ComptesValid != $PlacesReserv)
                                 @if($users[0]->CompteValide != 1)
                                     <center><h3>Places disponibles :</h3></center>
@@ -37,12 +40,16 @@
                                     <center><h3>Vous avez déjà réserver une place !</h3></center>
                                 @endif
                             @else
-                            <div><br /><br />
-                                <td><h4>Les places sont actuellements occupées,&emsp;&emsp;&emsp;&emsp;
-                                    <span style="text-decoration: underline;">Voulez-vous passer en file d'attente ?</span>
-                                    <br /><br /></h4></td>
-                                <td><a class="btn btn-default" href="{{ route('FileDattenteIndex') }}">Passer en liste d'attente</a></td>
-                            </div>
+                                @if($users[0]->CompteValide != 1)
+                                    <div><br /><br />
+                                    <td><h4>Les places sont actuellements occupées,&emsp;&emsp;&emsp;&emsp;
+                                        <span style="text-decoration: underline;">Voulez-vous passer en file d'attente ?</span>
+                                        <br /><br /></h4></td>
+                                    <td><a class="btn btn-default" href="{{ route('FileDattenteIndex') }}">Passer en liste d'attente</a></td>
+                                    </div>
+                                @else
+                                    <center><h3>Vous avez déjà réserver une place !</h3></center>
+                                @endif
                             @endif
                         </div>
 				</table>

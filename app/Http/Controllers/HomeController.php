@@ -28,4 +28,8 @@ class HomeController extends Controller
 	else
 		return view('home');
     }
+    public function retour()
+    {
+        return view('welcome');
+    }
 }

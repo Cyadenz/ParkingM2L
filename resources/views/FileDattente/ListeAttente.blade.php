@@ -9,6 +9,9 @@
                 <h3><center>Liste d'attente</center></h3>
                     <table class="table">
                             <div class="panel-body">
+                            <div style="text-align: right;">
+                                <a align="right" href="{{ url('Reservation') }}">Retour arrière</a>
+                            <div>
                                 <td>
                                     <ul>
                                             @if( is_null($users[0]->rang) )

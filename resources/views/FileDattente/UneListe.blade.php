@@ -11,6 +11,9 @@
                         {{ csrf_field() }}
                     <table class="table">
                             <div class="panel-body">
+                                <div style="text-align: right;">
+                                    <a align="right" href="{{ url('ListesAttentes') }}">Retour arrière</a>
+                                <div>
                         		<td>Prénom</td>
                         		<td>Nom</td>
                                 <td>Position sur la liste d'attente</td>

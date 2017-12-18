@@ -8,7 +8,8 @@
             <div class="panel panel-default">
                 <h3><center>Administration</center></h3>
                     <table class="table">
-                            <div class="panel-body">
+                            <div style="text-align: right;" class="panel-body">
+                                <a align="right" href="{{ url('welcome') }}">Retour arrière</a>
                                 <td>
                                     <ul>
                                         <li><a href="{{ route('index') }}">Gestion utilisateur</a></li>

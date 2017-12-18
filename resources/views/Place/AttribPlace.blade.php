@@ -11,6 +11,9 @@
                         {{ csrf_field() }}
                         <table class="table">
                             <div class="panel-body">
+                                <div style="text-align: right;">
+                                    <a align="right" href="{{ url('EditPlace') }}">Retour arrière</a>
+                                <div>
                                 <td>Nom</td>
                                 <td>Prénom</td>
                                 <td>Date début</td>

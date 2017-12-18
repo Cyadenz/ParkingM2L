@@ -10,6 +10,9 @@
 
                 <table class="table">
                         <div class="panel-body">
+                            <div style="text-align: right;">
+                                <a align="right" href="{{ url('mesReservations') }}">Retour arrière</a>
+                            <div>
                             <td>Numéro de la place</td>
                             <td>Reserver</td>
                             <td>Reservé par</td>
